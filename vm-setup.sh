@@ -9,12 +9,15 @@ make debug
 sudo make install
 
 # Configurar usuario de git
-git config --global user.email "urrea.mauro90@gmail.com"
-git config --global user.name "maurou"
+echo "Configurando usuario de GitHub..."
+read -p "E-mail: " email
+git config --global user.email $email
+read -p "Nombre: " username
+git config --global user.name $username
 git config --global credential.helper 'cache --timeout=3600'
 
 # Solicitar el ingreso del token
-read -p "Token de GitHub: " token
+read -p "Ingrese token de GitHub: " token
 
 # Asignar el token al usuario
 git credential approve < <(echo "protocol=https
